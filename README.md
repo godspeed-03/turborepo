@@ -4,7 +4,7 @@ This is a custom starter template for Turborepo with Tailwind css and shadcn UI.
 
 | ![Turborepo](https://user-images.githubusercontent.com/4060187/106504110-82f58d00-6494-11eb-87b7-a16d4f68bc5a.png) |
 |---------------------------------------------------------------------------------------------------------------|
-| ![React](./Public/react.svg) | ![Next.js](./Public/next.svg) | ![shadcn](https://avatars.githubusercontent.com/u/139895814?s=100) | ![tailwind](https://avatars.githubusercontent.com/u/67109815?s=100) | 
+| ![React](./Public/react.svg)  ![Next.js](./Public/next.svg)  ![shadcn](https://avatars.githubusercontent.com/u/139895814?s=100)  ![tailwind](https://avatars.githubusercontent.com/u/67109815?s=100) | 
 
 
 
