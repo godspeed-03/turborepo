@@ -1,5 +1,5 @@
 {
-  "name": "nxtcodebase",
+  "name": "turborepo",
   "private": true,
   "scripts": {
     "build": "turbo build",
