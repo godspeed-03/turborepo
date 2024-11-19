@@ -79,7 +79,9 @@ This Turborepo has some additional tools already setup for you:
 - [Shadcn](https://ui.shadcn.com) as UI components
 
 ### Tailwind configuration  `@repo/tailwind-config`
-This folder contains all the tailwind configuration whcih can be used in any apps or workspace folder
+This folder contains all the tailwind configuration whcih can be used in any apps or workspace folder :
+
+![demo-img](https://cdn.hashnode.com/res/hashnode/image/upload/v1732014148887/842ca7f9-91d8-49b6-b79e-35520ce3d476.png)
 
 - `package.json` : A file for specification of the pakges and exports from the internal folder
 - `globals.css` : Contains all the css for shadcn and Tailwind
@@ -93,6 +95,9 @@ This folder contains all the tailwind configuration whcih can be used in any app
 First specify the package to be used into nay work spcae
 - Go to `pakage.json` file
 - Under `devDependencies` add
+
+    ![pakage.json](https://cdn.hashnode.com/res/hashnode/image/upload/v1732018022122/4870cfe0-146f-422a-b952-61d582323882.png)
+
 ``` sh
 "@repo/tailwind-config": "workspace:*"
 ```
@@ -104,6 +109,9 @@ First specify the package to be used into nay work spcae
 module.exports = require("@repo/tailwind-config/postcssConfig")
 
 ```
+
+![Tailwind-demo](https://cdn.hashnode.com/res/hashnode/image/upload/v1732014719782/7c5bdf37-6582-44db-937b-71cbc8399de6.png)
+
 
 #### `tailwind.config.js`
 ``` cjs
