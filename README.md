@@ -1,14 +1,56 @@
 # Turborepo starter
 
-This is an official starter Turborepo.
+This is a custom starter template for Turborepo with Tailwind css and shadcn UI.
 
-## Using this example
+| ![Turborepo](https://user-images.githubusercontent.com/4060187/106504110-82f58d00-6494-11eb-87b7-a16d4f68bc5a.png) |
+|---------------------------------------------------------------------------------------------------------------|
+| ![React](./Public/react.svg) | ![Next.js](./Public/next.svg) | ![shadcn](https://avatars.githubusercontent.com/u/139895814?s=100) | ![tailwind](https://avatars.githubusercontent.com/u/67109815?s=100) | 
+
+
+
+## What is Truborepo ?
+
+[Turborepo](https://turbo.build) is a high-performance monorepo build system designed to manage multiple projects within a single repository efficiently. It optimizes builds, testing, and deployments by leveraging caching, parallel processing, and incremental builds. Turborepo is especially useful for large-scale projects or teams working on interconnected codebases, ensuring consistency and faster development cycles.
+
+![Turborepo](./Public/turborepo.jpg)
+
+## To create an offical starter Turborepo
 
 Run the following command:
 
 ```sh
-npx create-turbo@latest
+npx create-turbo@latest myprojectname
+#0R
+pnpm dlx create-turbo@latest myprojectname
 ```
+
+## To work with this custom template
+Fork this repo and dont forget to star it ⭐.
+
+```sh
+git clone https://github.com/{your_user_name/{your_repo_name}.git
+```
+NOTE : THis repo used `pnpm` as package manager.
+
+```sh
+cd {your_repo_name}
+
+pnpm install
+```
+### To run the devleopment server
+```sh
+pnpm dev
+```
+### To lint
+```sh
+pnpm lint
+```
+### To build
+```sh
+pnpm build
+```
+
+
 
 ## What's inside?
 
@@ -17,8 +59,10 @@ This Turborepo includes the following packages/apps:
 ### Apps and Packages
 
 - `docs`: a [Next.js](https://nextjs.org/) app
+- `shop`: another [Next.js](https://nextjs.org/) app
 - `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `@repo/ui`: a stub React component library shared by all `web` `shop` and `docs` applications and contains `shadcn` packages
+- `@repo/tailwind-config`: a tailwind configuration shared by all `web` `shop` `docs` and `ui` in package applications
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
@@ -31,24 +75,54 @@ This Turborepo has some additional tools already setup for you:
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
+- [Tailwind](https://tailwindcss.com) for inline-classes
+- [Shadcn](https://ui.shadcn.com) as UI components
 
-### Build
+### Tailwind configuration  `@repo/tailwind-config`
+This folder contains all the tailwind configuration whcih can be used in any apps or workspace folder
 
-To build all apps and packages, run the following command:
+- `package.json` : A file for specification of the pakges and exports from the internal folder
+- `globals.css` : Contains all the css for shadcn and Tailwind
+- `style.tsx` : Import `globals.css` and export to be consumed by all workspaces
+- `postcss.config.js` : contains all configuration of post css
+- `tailwind.config.js` : contains all configuration of `Tailwind CSS` and `Shadcn UI`
+
+
+
+#### How to import `postcss.config.js` and `tailwind.config.js` into any work space
+First specify the package to be used into nay work spcae
+- Go to `pakage.json` file
+- Under `devDependencies` add
+``` sh
+"@repo/tailwind-config": "workspace:*"
+```
+- now add these files accordingly with the name give below
+
+#### `postcss.config.js` 
+``` cjs
+/** @type {import('postcss-load-config').Config} */
+module.exports = require("@repo/tailwind-config/postcssConfig")
 
 ```
-cd my-turborepo
-pnpm build
+
+#### `tailwind.config.js`
+``` cjs
+/** @type {import('tailwindcss').Config} */
+
+const config = require("@repo/tailwind-config/tailwindConfig")
+
+
+module.exports = {
+    ...config,
+    content : [
+        "./app/**/*.tsx", //For app folder
+        //or
+        "./src/**/*.tsx" //For src folder
+        "../../packages/ui/**/*.tsx", //for UI folder
+    ]
+}
 ```
 
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
 
 ### Remote Caching
 
@@ -57,7 +131,7 @@ Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo
 By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
 ```
-cd my-turborepo
+cd {your_repo_name}
 npx turbo login
 ```
 
