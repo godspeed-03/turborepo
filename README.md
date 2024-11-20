@@ -8,7 +8,7 @@ This is a custom starter template for Turborepo with Tailwind CSS and Shadcn UI.
 
 
 
-## What is Truborepo ?
+## What is Turborepo ?
 
 [Turborepo](https://turbo.build) is a high-performance mono repo build system designed to efficiently manage multiple projects within a single repository. It optimizes builds, testing, and deployments by leveraging caching, parallel processing, and incremental builds. Turborepo is especially useful for large-scale projects or teams working on interconnected codebases, ensuring consistency and faster development cycles.
 
